@@ -98,3 +98,23 @@ new_string = example[:first] + example[first + 1:second] + example[second + 1:]
 print new_string # Opps, I should probably replace the !s with periods
 new_string = example[:first] + '.' + example[first + 1:second] + '.' + example[second + 1:]
 print new_string
+
+# Stage 2: Work Session 2 - Find 2
+
+# Assume text is a variable that holds a string.
+# Write Python code that prints out the position
+# of the second occurrence of 'zip' in text, or -1
+# if it does not occur at least twice.
+
+# For example,
+# text = 'all zip files are zipped'
+# >>> 18
+# text = 'all zip files are compressed'
+# >>> -1
+
+text = "all zip files are zipped"
+
+# ENTER CODE BELOW HERE
+
+first_location = text.find('zip')
+print text.find('zip', first_location + 1)

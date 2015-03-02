@@ -83,3 +83,26 @@ print '''
 	</div>
 </div>
 '''
+
+# Stage 2: Work Session 2 - Strings and Variables Practice
+
+# Use string sequence to take the single HTML <div> element
+# below (written on one line) and then prints it up as three lines.
+
+# The first line should just be the opening tag: <div>
+# The second line should be the text within the div (don't forget to indent)
+# The third line should just be the closing tag: </div>
+
+div_element = "<div>I am learning to code!</div>"
+
+opening_tag = div_element[:5]	# add the appropriate numbers to each side of the colon
+indent = '    '					# modify this string so that it indents the inner text
+inner_text = div_element[5:-6]	# add the appropriate numbers to each side of the colon
+closing_tag = div_element[-6:]	# add the appropriate numbers to each side of the colon
+
+print opening_tag
+print indent + inner_text
+print closing_tag
+
+# This is a better solution because it is general and will work no matter what the 
+# text between the <div> tags.
