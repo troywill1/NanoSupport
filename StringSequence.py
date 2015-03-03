@@ -118,3 +118,7 @@ text = "all zip files are zipped"
 
 first_location = text.find('zip')
 print text.find('zip', first_location + 1)
+
+# or we could do this in one line
+
+print text.find('zip', text.find('zip') + 1)
