@@ -342,3 +342,21 @@ print danton.find('audace', 26)
 print danton[47:]
 print danton.find('audace', 48)
 ```
+
+## Input -> Function -> Output
+
+### Using Procedures
+
+* A way to map inputs to outputs
+
+```
+<procedure>(<input>, <input>,...)
+            operands or arguments
+````
+
+```python
+def rest_of_string(s):
+  return s[1:]
+
+print rest_of_string('audacity')
+````
