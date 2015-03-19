@@ -48,3 +48,40 @@ def abbaize(firstInput, secondInput):
 
 print abbaize('a', 'b')
 print abbaize('dog', 'cat')
+
+# Stage 2: Work Session 3 - Udacify
+
+# Define a procedure, udacify, that takes as input a string,
+# and returns a string that is an uppercase 'U' followed by
+# the input string. For example, when you enter
+
+# print udacify('dacians')
+
+# the output should be the string 'Udacians'
+
+def udacify(inputString):
+	return 'U' + inputString
+
+print udacify('dacians')
+print udacify('turn')
+print udacify('boat')
+
+# Stage 2: Work Session 3 - Automatically Generate HTML
+
+# Write a function that takes a concept title and a concept
+# description as input and then returns HTML that you can copy
+# and paste into your notes web page.
+
+def webify(conceptTitle, conceptDescription):
+	return '''
+	<div class="concept">
+		<div class="concept-title">
+			''' + conceptTitle + '''
+		</div>
+
+		<div class="concept-description">
+			''' + conceptDescription + '''
+		</div>
+	</div>'''
+
+print webify('Troy Title', 'Troy Description')

@@ -360,3 +360,44 @@ def rest_of_string(s):
 
 print rest_of_string('audacity')
 ````
+
+ADD THE REST OF PROCEDURE NOTES HERE. SEE HTML DOCUMENT
+
+## Decisions and Repetition: If and While
+
+### Equality Comparisons
+
+````
+# Decisions and Repitition: Equality Comparisons
+
+print 2 < 3
+print 21 < 3
+print 7 * 3 < 21
+
+print 7 * 3 != 21
+print 7 * 3 == 21 # '=' means assignment, '==' mean equality
+````
+
+### If Statements
+
+````
+if <Test Expression>:
+  <Block>
+<Code> # will execute regardless of the test expression
+````
+````
+def absolute(x):
+  if x < 0:
+    x = -x
+  return x
+
+print absolute(10)
+print absolute(-10)
+````
+
+````
+if <Test Expression>:
+  <Block>
+else:
+  <Block>
+````
