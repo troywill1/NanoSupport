@@ -361,7 +361,24 @@ def rest_of_string(s):
 print rest_of_string('audacity')
 ````
 
-ADD THE REST OF PROCEDURE NOTES HERE. SEE HTML DOCUMENT
+On the first line of your function definition...
+
+* You must begin the line with **def** (lowercase)
+* After **def** you must give a function name (in this case it will be **udacify**)
+* Next, you must have a set of parentheses **with the required parameters inside**
+* The line must end with a **:** (colon)
+
+In the body of the function...
+
+* Every line in the function must be indented
+* If you want your function to produce output, it must end with a **return** statement
+
+To "call" the function...
+
+1. The function name, followed by...
+2. ...an open paren **(**, followed by...
+3. ...the values for the required parameters, followed by...
+4. ...a closed paren **)**
 
 ## Decisions and Repetition: If and While
 
@@ -382,8 +399,8 @@ print 7 * 3 == 21 # '=' means assignment, '==' mean equality
 
 ````
 if <Test Expression>:
-  <Block>
-<Code> # will execute regardless of the test expression
+  <Block> # block will execute 0 or 1 times
+<Code>    # will execute regardless of the test expression
 ````
 ````
 def absolute(x):
@@ -400,4 +417,47 @@ if <Test Expression>:
   <Block>
 else:
   <Block>
+````
+
+### Or Operator
+
+````
+<Expression> or <Expression>
+
+If the first expression evaluates to True, the value is True
+and the second expression is not evaluated.
+
+If the first expression evaluates to False, the value is the
+value of the second expression.
+````
+
+### Every Possible Computer Program
+
+We now know enough to write, in theory, every possible computer program. All that is needed:
+
+* Arithmetic
+* Comparisons
+* Procedures
+* If Statements
+
+This was proven in the 1930s by Alan Turing (1912-1954):
+
+* Developed abstract model of a computer (1936), "Turing Machine"
+* Proved that a machine with a few simple operations could simulate any other machine
+
+### While Loops
+
+````
+while <Test Expression>
+  <Block> # Will execute 0, 1, 2,...times
+````
+
+````
+while <Test Expression>
+  <Code>
+  if <Break Test>
+    break
+  <More Code>
+
+<After While>
 ````
