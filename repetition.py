@@ -264,3 +264,26 @@ def countdown(number):
 countdown(3)
 countdown(5)
 countdown(-1)
+
+# Stage 2: Work Session 4: Median
+
+# Define a procedure, median, that takes three numbers as its inputs, 
+# and returns the median of the three numbers.
+
+# Make sure your procedure has a return statement.
+
+def median(x,y,z):
+
+	largestNum = biggest3(x,y,z)
+
+	if largestNum == x:
+		return bigger(y,z)
+
+	if largestNum == y:
+		return bigger(x,z)
+
+	return bigger(x,y) # if we get here, we know 'z' is the largest
+
+print median(1,2,3)
+print median(9,3,6)
+print median(7,8,7)
