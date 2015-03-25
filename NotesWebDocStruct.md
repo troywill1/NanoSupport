@@ -461,3 +461,25 @@ while <Test Expression>
 
 <After While>
 ````
+
+## Structured Data: Lists and For Loops
+
+### Lists
+
+* **String** - Sequence of characters
+
+````
+s = 'yabba!'
+s[0] -> 'y'
+s[2:4] -> 'bb'
+````
+
+* **List** - Sequence of _anything_
+
+````
+p = ['y', 'a', 'b', 'b', 'a', '!']
+p[0] -> 'y'
+p[2:4] -> ['b', 'b']
+
+<list> -> [<expression>, <expression>,...]
+````
