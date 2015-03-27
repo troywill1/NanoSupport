@@ -483,3 +483,14 @@ p[2:4] -> ['b', 'b']
 
 <list> -> [<expression>, <expression>,...]
 ````
+
+### For Loops
+
+````
+For <name> in <list>:
+  <Block>
+
+def print_all_elements(p):
+  for e in p:
+    print e
+````
