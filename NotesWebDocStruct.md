@@ -81,7 +81,7 @@ A web page is a text document written in a language called HTML. Web browsers re
 * CSS controls the "style" of a page (how it looks).
 * When programmers talk about the "DOM" (Document Object Model) they are talking about the tree-like structure of a page.
 
-* To learn more about what a "tree-like structure" means, read the first two paragraphs of the wikipedia article on [Tree Structures][http://en.wikipedia.org/wiki/Tree_structure].
+* To learn more about what a "tree-like structure" means, read the first two paragraphs of the wikipedia article on [Tree Structures](http://en.wikipedia.org/wiki/Tree_structure).
 
 * Everything on a webpage is a box. Use <div> to define a block of content, or create "boxes", to give structure to a document with HTML.
 
