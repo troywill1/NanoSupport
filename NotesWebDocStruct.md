@@ -352,14 +352,14 @@ print danton.find('audace', 48)
 ```
 <procedure>(<input>, <input>,...)
             operands or arguments
-````
+```
 
 ```python
 def rest_of_string(s):
   return s[1:]
 
 print rest_of_string('audacity')
-````
+```	
 
 On the first line of your function definition...
 
