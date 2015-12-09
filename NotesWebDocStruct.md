@@ -359,12 +359,12 @@ def rest_of_string(s):
   return s[1:]
 
 print rest_of_string('audacity')
-```	
+```
 
 On the first line of your function definition...
 
 * You must begin the line with **def** (lowercase)
-* After **def** you must give a function name (in this case it will be **udacify**)
+* After **def** you must give a function name (in this case it will be **rest_of_string**)
 * Next, you must have a set of parentheses **with the required parameters inside**
 * The line must end with a **:** (colon)
 
