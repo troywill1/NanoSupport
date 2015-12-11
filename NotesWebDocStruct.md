@@ -384,7 +384,7 @@ To "call" the function...
 
 ### Equality Comparisons
 
-````
+```python
 # Decisions and Repitition: Equality Comparisons
 
 print 2 < 3
@@ -393,16 +393,16 @@ print 7 * 3 < 21
 
 print 7 * 3 != 21
 print 7 * 3 == 21 # '=' means assignment, '==' mean equality
-````
+```
 
 ### If Statements
 
-````
+```python
 if <Test Expression>:
   <Block> # block will execute 0 or 1 times
 <Code>    # will execute regardless of the test expression
-````
-````
+```
+```python
 def absolute(x):
   if x < 0:
     x = -x
@@ -410,18 +410,18 @@ def absolute(x):
 
 print absolute(10)
 print absolute(-10)
-````
+```
 
-````
+```python
 if <Test Expression>:
   <Block>
 else:
   <Block>
-````
+```
 
 ### Or Operator
 
-````
+```
 <Expression> or <Expression>
 
 If the first expression evaluates to True, the value is True
@@ -429,7 +429,7 @@ and the second expression is not evaluated.
 
 If the first expression evaluates to False, the value is the
 value of the second expression.
-````
+```
 
 ### Every Possible Computer Program
 
@@ -447,12 +447,12 @@ This was proven in the 1930s by Alan Turing (1912-1954):
 
 ### While Loops
 
-````
+```
 while <Test Expression>
   <Block> # Will execute 0, 1, 2,...times
-````
+```
 
-````
+```
 while <Test Expression>
   <Code>
   if <Break Test>
@@ -460,7 +460,7 @@ while <Test Expression>
   <More Code>
 
 <After While>
-````
+```
 
 ## Structured Data: Lists and For Loops
 
@@ -468,29 +468,46 @@ while <Test Expression>
 
 * **String** - Sequence of characters
 
-````
+```python
 s = 'yabba!'
 s[0] -> 'y'
 s[2:4] -> 'bb'
-````
+```
 
 * **List** - Sequence of _anything_
 
-````
+```python
 p = ['y', 'a', 'b', 'b', 'a', '!']
 p[0] -> 'y'
 p[2:4] -> ['b', 'b']
 
 <list> -> [<expression>, <expression>,...]
-````
+```
 
 ### For Loops
 
-````
+```python
 For <name> in <list>:
   <Block>
 
 def print_all_elements(p):
   for e in p:
     print e
-````
+```
+
+## Debugging
+
+### Debugging Strategy Recap
+
+* Examine error messages when programs crash
+* Work from example code
+* Make sure examples work
+* Check (print) intermediate results
+* Keep and compare old versions
+
+### Commenting Code
+
+1. Don't comment obvious code
+2. Start functions with a comment
+3. Keep comments up-to-date
+4. Be concise
