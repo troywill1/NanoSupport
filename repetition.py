@@ -58,7 +58,7 @@ print bigger(3,3)
 # Decisions and Repitition: Is Friend
 
 # Define a procedure, is_friend, that takes a string as
-# its input, and returns a Boolean indicating  if the 
+# its input, and returns a Boolean indicating  if the
 # input string is the name of a friend. Assume I am friends
 # with everyone whose name starts with 'D' and no one else.
 # You do not need to check for the lowercase 'd'.
@@ -83,7 +83,7 @@ print is_friend2('Fred')
 # Decisions and Repitition: More Friends
 
 # Define a procedure, is_friend, that takes a string as
-# its input, and returns a Boolean indicating  if the 
+# its input, and returns a Boolean indicating  if the
 # input string is the name of a friend. Assume I am friends
 # with everyone whose name starts with 'D' or 'N' and no one else.
 # You do not need to check for the lowercase 'd' or 'n.
@@ -217,7 +217,7 @@ print remove_spaces("Hello my name is Troy how are you?")
 # whole number, and prints out all the whole numbers from 1 to the
 # input number.
 
-# Make sure your procedure prints 'upwards', so from 1 up to the 
+# Make sure your procedure prints 'upwards', so from 1 up to the
 # input number.
 
 def print_numbers(number):
@@ -248,10 +248,10 @@ print weekend("Sunday")
 # Stage 2: Work Session 4: Blastoff
 
 # Define a procedure, countdown, that takes a positive whole number
-# as its input, and prints out a countdown from that number to 1, 
+# as its input, and prints out a countdown from that number to 1,
 # followed by Blastoff!
 
-# The procedure should not return anything. For this question, you 
+# The procedure should not return anything. For this question, you
 # just need to call the procedure using the line 'countdown(3)', instead
 # of 'print countdown(3)'
 
@@ -267,7 +267,7 @@ countdown(-1)
 
 # Stage 2: Work Session 4: Median
 
-# Define a procedure, median, that takes three numbers as its inputs, 
+# Define a procedure, median, that takes three numbers as its inputs,
 # and returns the median of the three numbers.
 
 # Make sure your procedure has a return statement.
@@ -287,3 +287,18 @@ def median(x,y,z):
 print median(1,2,3)
 print median(9,3,6)
 print median(7,8,7)
+
+# Or, a version, probably cleaner, using the Python built-in 'max' function
+
+def median2(x,y,z):
+	largestNum = max(x,y,z)
+
+	if largestNum == x:
+		return max(y,z)
+	if largestNum == y:
+		return max(x,z)
+	return max(x,y) # if we get here, we know 'z' is the largest
+
+print median2(1,2,3)
+print median2(9,3,6)
+print median2(7,8,7)
