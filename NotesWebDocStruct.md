@@ -495,6 +495,24 @@ def print_all_elements(p):
     print e
 ```
 
+### List Index (with in)
+
+```python
+def find_element2(list, element):
+	if element in list:
+		return list.index(element)
+	else:
+		return -1
+```
+
+```python
+def find_element3(list, element):
+	if element not in list:
+		return -1
+	else:
+		return list.index(element)
+```
+
 ## Debugging
 
 ### Debugging Strategy Recap
