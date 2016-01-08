@@ -4,7 +4,7 @@
 # Simply put, if you were born 1 Jan 2012 and todays date is
 # 2 Jan 2012 you are 1 day old.
  
-daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+daysOfMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
  
 def isLeapYear(year):
     ##
@@ -28,7 +28,14 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
     ##
     yearDays = 365
     leapYearDays = 366
+    
+    birthYear = y1
     birthMonth = m1
+    birthDay = d1
+    currentYear = y2
+    currentMonth = m2
+    currentDay = d2
+    
     days = 0
     
     # Birthday should not be in the future
@@ -44,39 +51,79 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
                 return days
     
     # Calculate days between full years
-    while y2 - y1 > 1:
+    while currentYear - birthYear > 1:
         
-        isLeap = isLeapYear(y1)
+        isLeap = isLeapYear(birthYear)
         
         if isLeap == True:
             days = days + leapYearDays
         else:
             days = days + yearDays
             
-        y1 = y1 + 1
+        birthYear += 1
             
     # Calculate days between months
-    # FIXME: Need to account for leap day if it's a leap year
-    while m2 != m1: # FIXME: Problem here when the months match
+    if (m1 == m2) & (y1 != y2):
+        monthCounter = 0
         
-        days = days + daysOfMonths[m1 - 1]
+        while monthCounter < 12:
+            days += daysOfMonths[birthMonth - 1]
+            monthCounter += 1
+            birthMonth += 1
+            
+        isLeap = isLeapYear(y1)
+        if (isLeap == True) & (m1 != 2):
+            days += 1
         
-        if m1 == 12:
-            m1 = 1
-        else:
-            m1 = m1 + 1
+        isLeap = isLeapYear(y2)
+        if (isLeap == True) & (m2 > 2):
+            days += 1
+            
+    elif (m1 < m2) & (y1 != y2):
+        monthCounter = 0
+        plusMonths = (m2 - m1) + 12
+
+        while monthCounter < plusMonths:
+            
+            days += daysOfMonths[birthMonth - 1]
+            monthCounter += 1
+            
+            if birthMonth == 12:
+                birthMonth = 1
+            else:
+                birthMonth += 1
+                 
+        isLeap = isLeapYear(y1)
+        if (isLeap == True) & (m1 != 2):
+            days += 1
+        
+        isLeap = isLeapYear(y2)
+        if (isLeap == True) & (m2 > 2):
+            days += 1
+            
+    else:
+        
+        while currentMonth != birthMonth:
+            
+            days += daysOfMonths[birthMonth - 1]
+        
+            if birthMonth == 12:
+                birthMonth = 1
+            else:
+                birthMonth += 1
         
     # Calculate days between days
-    while d2 != d1:
+    birthMonth = m1 # Reset birthMonth variable back to m1 as it may have changed
+    while currentDay != birthDay:
         
         daysInMonth = daysOfMonths[birthMonth - 1]
-        days = days + 1
+        days += 1
         
-        if d1 == daysInMonth:
-            d1 = 1
+        if birthDay == daysInMonth:
+            birthDay = 1
         else:
-            d1 = d1 + 1
-         
+            birthDay += 1
+        
     return days
     
 # isLeapYear function verification
@@ -99,8 +146,12 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 # print isLeapYear(2300)
 # print isLeapYear(2500)
 
-print daysBetweenDates(2019, 4, 6, 2016, 1, 6) # Birthday cannot be in the future
+# print daysBetweenDates(2019, 4, 6, 2016, 1, 6) # Birthday cannot be in the future, -1
 print daysBetweenDates(2012, 1, 1, 2012, 1, 2) # Problem example given. Should = 1
-print daysBetweenDates(2015, 1, 1, 2015, 12, 31)
-print daysBetweenDates(2015, 1, 1, 2016, 1, 1) # FIXME: This returns 0, which is wrong
-print daysBetweenDates(1968, 6, 11, 2016, 1, 7) # FIXME: This is over-calculating days
+# print daysBetweenDates(2015, 1, 1, 2015, 12, 31) # 364
+# print daysBetweenDates(2015, 1, 1, 2016, 1, 1) # 365
+# print daysBetweenDates(2014, 1, 1, 2015, 1, 1) # 365
+# print daysBetweenDates(2016, 1, 1, 2017, 1, 1) # 366
+# print daysBetweenDates(2015, 1, 1, 2016, 3, 1) # 425
+# print daysBetweenDates(2013, 1, 1, 2016, 1, 8) # 1102
+# print daysBetweenDates(1968, 6, 11, 2016, 1, 7) # FIXME: This is over-calculating days
