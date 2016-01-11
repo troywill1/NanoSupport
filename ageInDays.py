@@ -1,3 +1,7 @@
+# This was my first try alone of solving the problem below. The file
+# "daysBetweenDates.py" is starter code from the lesson that is walked-through
+# in the videos.
+
 # Given your birthday and the current date, calculate your age
 # in days. Compensate for leap days. Assume that the birthday
 # and current date are correct dates (and no time travel).
@@ -69,7 +73,11 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
         while monthCounter < 12:
             days += daysOfMonths[birthMonth - 1]
             monthCounter += 1
-            birthMonth += 1
+            
+            if birthMonth == 12:
+                birthMonth = 1
+            else:
+                birthMonth += 1
             
         isLeap = isLeapYear(y1)
         if (isLeap == True) & (m1 != 2):
@@ -111,6 +119,11 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
                 birthMonth = 1
             else:
                 birthMonth += 1
+                
+        # The years are equal, so only test leap year on the backend
+        isLeap = isLeapYear(y2)
+        if (isLeap == True) & (m2 > 2):
+            days += 1
         
     # Calculate days between days
     birthMonth = m1 # Reset birthMonth variable back to m1 as it may have changed
@@ -147,7 +160,7 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 # print isLeapYear(2500)
 
 # print daysBetweenDates(2019, 4, 6, 2016, 1, 6) # Birthday cannot be in the future, -1
-print daysBetweenDates(2012, 1, 1, 2012, 1, 2) # Problem example given. Should = 1
+# print daysBetweenDates(2012, 1, 1, 2012, 1, 2) # Problem example given. Should = 1
 # print daysBetweenDates(2015, 1, 1, 2015, 12, 31) # 364
 # print daysBetweenDates(2015, 1, 1, 2016, 1, 1) # 365
 # print daysBetweenDates(2014, 1, 1, 2015, 1, 1) # 365
@@ -155,3 +168,27 @@ print daysBetweenDates(2012, 1, 1, 2012, 1, 2) # Problem example given. Should =
 # print daysBetweenDates(2015, 1, 1, 2016, 3, 1) # 425
 # print daysBetweenDates(2013, 1, 1, 2016, 1, 8) # 1102
 # print daysBetweenDates(1968, 6, 11, 2016, 1, 7) # FIXME: This is over-calculating days
+
+# Above are my test cases, below is a test script from the lesson.
+
+# Below is a testing script that will check if your code is doing
+# what it is supposed to. Don't change it! The test will run
+# when you execute the file.
+# Bonus: Can you figure out how the test works?
+ 
+def test():
+    test_cases = [((2012,1,1,2012,2,28), 58),
+                  ((2012,1,1,2012,3,1), 60),
+                  ((2011,6,30,2012,6,30), 366),
+                  ((2011,1,1,2012,8,8), 585 ),
+                  ((1900,1,1,1999,12,31), 36523)]
+ 
+    for (args, answer) in test_cases:
+        result = daysBetweenDates(*args)
+        if result != answer:
+            print "Test with data:", args, "failed"
+            print result
+        else:
+            print "Test case passed!"
+ 
+test()

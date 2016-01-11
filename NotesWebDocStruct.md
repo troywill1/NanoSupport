@@ -529,3 +529,23 @@ def find_element3(list, element):
 2. Start functions with a comment
 3. Keep comments up-to-date
 4. Be concise
+
+# How to Solve Problems
+
+## Pythonista's Guide to All Problems in the Galaxy
+
+1. Don't Panic!
+2. What are the inputs?
+3. What are the outputs?
+4. Work through some examples by hand
+5. Simple mechanical solution:
+
+```
+days = 0
+  while date1 is before date2:
+    date1 = advance to next day
+    days += 1
+  return days
+```
+
+* Don't optimize prematurely! Simple and correct.
