@@ -548,4 +548,7 @@ days = 0
   return days
 ```
 
-* Don't optimize prematurely! Simple and correct.
+* Don't optimize prematurely!
+  * Simple and correct
+* Making progress is good!
+  * Write small bits of code, test them, know what they do
