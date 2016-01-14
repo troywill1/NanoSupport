@@ -548,6 +548,8 @@ days = 0
   return days
 ```
 
+6. Develop incrementally and test as you go
+
 * Don't optimize prematurely!
   * Simple and correct
 * Making progress is good!
