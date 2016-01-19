@@ -75,13 +75,12 @@ number | occurrence
 # Build the tables with for loops so the length and random numbers can change.
 # This is a "distribution table" or "histogram."
 value = 0
+numLength = len("number") # Get the length, this never changes
 print "number | occurrence"
 
 for x in count_list:
-    if value < 10:
-        print "     " + str(value) + " | " + str(x)
-    else:
-        print "    " + str(value) + " | " + str(x)
+    numSpaces = numLength - len(str(value)) # How many spaces do we need?
+    print " " * numSpaces + str(value) + " | " + str(x)
     value += 1
 
 print
@@ -90,10 +89,8 @@ value = 0
 print "number | occurrence"
 
 for x in count_list:
-    if value < 10:
-        print "     " + str(value) + " | " + "*" * x
-    else:
-        print "    " + str(value) + " | " + "*" * x
+    numSpaces = numLength - len(str(value))
+    print " " * numSpaces + str(value) + " | " + "*" * x
     value += 1
 
 # When we print this list, we should get a list of random integers such as:
@@ -107,3 +104,45 @@ print
 print random_list
 print count_list
 print sum(count_list) # Sum should be 20
+
+print
+
+# Product list
+
+# Define a procedure, product_list, that takes as input a list of numbers,
+# and returns a number that is the result of multiplying all the numbers
+# in the list.
+
+def product_list(list_of_numbers):
+    """Returns the product of multiplying all numbers in a given list"""
+    product = 1 # Works for any value of list_of_numbers[0]
+    for x in list_of_numbers:
+        product = product * x
+    return product
+
+print product_list([9])
+print product_list([1,2,3,4])
+print product_list([])
+print
+
+# Greatest
+
+# Define a procedure, greatest, that takes as input a list of positive
+# numbers, and returns the greatest number in the list. If the input list is
+# empty, the output should be zero.
+
+def greatest(list_of_numbers2):
+    """Return the greatest number, given a list of positive numbers. If the
+    list is empty, return zero"""
+
+    if len(list_of_numbers2) > 0:
+        return max(list_of_numbers2)
+    return 0
+
+print greatest([4,23,1])
+print greatest([])
+print
+
+# Strings to lists
+
+# 
