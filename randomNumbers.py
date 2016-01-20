@@ -145,4 +145,50 @@ print
 
 # Strings to lists
 
-# 
+# Let's play around with one more string method: string.split(), which
+# splits a string into a list of substrings, and returns it as a new list.
+# Assign list_of_words1 to the split string1 and list_of_words2 to the split
+# string2.
+
+string1 = "Yesterday, PERSON and I went to the PLACE. On our way, we saw a ADJECTIVE NOUN on a bike."
+string2 = "PLACE is located on the ADVERB side of Dublin, near the mainly ADJECTIVE areas of PLACE."
+list_of_words1 = string1.split()
+list_of_words2 = string2.split()
+
+print list_of_words1
+print list_of_words2
+print
+
+# And now, the reverse of string.split(): " ".join(string)
+rejoined_list1 = " ".join(list_of_words1)
+rejoined_list2 = " ".join(list_of_words2)
+
+print rejoined_list1
+print rejoined_list2
+print
+
+# Word in Parts of Speech
+
+# Here's another chance to practice your for loop skills. Write code for the
+# function word_in_pos (meaning work in parts_of_speech), which takes in a
+# string word and a list of parts_of_speech as inputs. If there is a word in
+# parts_of_speech that is a substring of the variable word, then return that
+# word in parts_of_speech, else return None.
+
+def word_in_pos(word, parts_of_speech):
+    """Returns word if it is a substring included in the list of strings,
+    parts_of_speech, else return None"""
+
+    for pos_word in parts_of_speech:
+        if pos_word in word: # New operator 'in'
+            return pos_word
+
+    return None
+
+test_cases = ["NOUN", "FALSE", "<<@PERSON><", "PLURALNOUN"]
+parts_of_speech = ["PERSON", "PLURALNOUN", "NOUN"]
+
+print word_in_pos(test_cases[0], parts_of_speech)
+print word_in_pos(test_cases[1], parts_of_speech)
+print word_in_pos(test_cases[2], parts_of_speech)
+print word_in_pos(test_cases[3], parts_of_speech)
