@@ -15,29 +15,28 @@ def word_in_pos(word, parts_of_speech):
 
     for pos in parts_of_speech:
         if pos in word:
-            return pos
+            return word
     return None
 
 def play_game(ml_string, parts_of_speech):
     replaced = []
     # your code here
     sub_word = "corgi"
-    len_sub_word = len(sub_word)
 
-    string_of_words = ml_string.split() # Split ml_string into list of words
+    string_of_words = ml_string.split() # split ml_string into list of words
 
     for word in string_of_words:
         result = word_in_pos(word, parts_of_speech)
+
         if result == None:
             replaced.append(word)
         else:
-            for pos_word in parts_of_speech:
-                if pos_word == word:
-                        replaced.append(sub_word)
+            if result.isalnum(): # returns True if all chars are alphanumeric
+                replaced.append(sub_word)
+            else:
+                replaced.append(sub_word + result[-1])
 
-            replaced.append(sub_word + word[-1])
-
-    final_string = " ".join(replaced) # Join the list of words back to a string
+    final_string = " ".join(replaced) # join the list of words back to a string
     return final_string
 
 print play_game(test_string, parts_of_speech)
