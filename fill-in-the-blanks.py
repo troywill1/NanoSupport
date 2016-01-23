@@ -1,42 +1,53 @@
 # IPND Stage 2 Final Project
 
-# You've built a Mad-Libs game with some help from Sean.
-# Now you'll work on your own game to practice your skills and demonstrate what you've learned.
-
 # For this project, you'll be building a Fill-in-the-Blanks quiz.
 # Your quiz will prompt a user with a paragraph containing several blanks.
-# The user should then be asked to fill in each blank appropriately to complete the paragraph.
+# The user should then be asked to fill in each blank appropriately to
+# complete the paragraph.
 # This can be used as a study tool to help you remember important vocabulary!
 
-# Note: Your game will have to accept user input so, like the Mad Libs generator,
-# you won't be able to run it using Sublime's `Build` feature.
-# Instead you'll need to run the program in Terminal or IDLE.
-# Refer to Work Session 5 if you need a refresher on how to do this.
+# Your game should consist of 3 or more levels, so you should add your own
+# paragraphs as well!
 
-# To help you get started, we've provided a sample paragraph that you can use when testing your code.
-# Your game should consist of 3 or more levels, so you should add your own paragraphs as well!
+# Credit to https://en.wikipedia.org/wiki/Mairzy_Doats and
+# http://www.tutorialspoint.com/python/ for quiz content.
 
-easyQuiz = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
-adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
-don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
-tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
+easyQuiz = """Python ___1___ do not need explicit declaration to reserve
+memory space. The ___2___ happens automatically when you assign a value
+to a variable. The ___3___ sign is used to assign values to varables. The
+operand to the left of the = operator is the ___4___ of the variable and the
+operand to the right of the = operator is the ___5___ stored in the variable."""
 
-easyAnswers = ["function", "arguments", "nothing", "list"]
+mediumQuiz = """Decision ___1___ is anticipation of conditions occurring during
+execution of the program and specifying ___2___ taken according to the
+conditions. Decision structures evaluate multiple expressions which produce
+___3___ or ___4___ as outcome. You need to determine which action to take and
+which statements to execute if outcome is ___3___ or ___4___ otherwise."""
 
-# The answer for ___1___ is 'function'. Can you figure out the others?
+hardQuiz = """Mairzy doats and dozy doats and liddle lamzy divey. A kiddley
+divey too, Wooden shoe! If the words sound queer and funny to your ear, a little
+bit jumbled and jivey, 'Sing ___1___ eat ___2___ and ___3___ eat ___2___ and
+little ___4___ eat ___5___.''"""
 
-# We've also given you a file called fill-in-the-blanks.pyc which is a working version of the project.
+easyAnswers = ["variables", "declaration", "equal", "name", "value"]
+mediumAnswers = ["making", "actions", "TRUE", "FALSE"]
+hardAnswers = ["mares", "oats", "does", "lambs", "ivy"]
+
+# We've also given you a file called fill-in-the-blanks.pyc which is a working
+# version of the project.
 # A .pyc file is a Python file that has been translated into "byte code".
-# This means the code will run the same as the original .py file, but when you open it
-# it won't look like Python code! But you can run it just like a regular Python file
-# to see how your code should behave.
+# This means the code will run the same as the original .py file, but when you
+# open it
+# it won't look like Python code! But you can run it just like a regular Python
+# file to see how your code should behave.
 
-# Hint: It might help to think about how this project relates to the Mad Libs generator you built with Sean.
-# In the Mad Libs generator, you take a paragraph and replace all instances of NOUN and VERB.
-# How can you adapt that design to work with numbered blanks?
+# Hint: It might help to think about how this project relates to the Mad Libs
+# generator you built with Sean. In the Mad Libs generator, you take a paragraph
+# and replace all instances of NOUN and VERB. How can you adapt that design to
+# work with numbered blanks?
 
-# If you need help, you can sign up for a 1 on 1 coaching appointment: https://calendly.com/ipnd1-1/20min/
-
+# If you need help, you can sign up for a 1 on 1 coaching appointment:
+# https://calendly.com/ipnd1-1/20min/
 
 # Prompts the User to choose the difficulty level.
 def get_difficulty():
@@ -70,22 +81,25 @@ def get_guesses():
     """Return the number of guesses, as a positive integer, that the User
     has selected."""
 
-    guesses = 0.0
+    guesses = ""
 
     while type(guesses) != int:
         print # For readability
 
         print "How many guesses you would like per blank word?"
-        # eval is used to do the type conversion
-        guesses = eval(raw_input("Please enter a positive integer: "))
 
-        if (type(guesses) == int) & (guesses > 0): # Test for int and positive
+        try:
+            guesses = int(raw_input("Please enter a positive integer: "))
+
+            if not (guesses >= 1): # if not int and positive
+                raise ValueError()
+        except ValueError:
+            print "Opps! Try again..."
+            guesses = ""
+        else:
             print "Wow! You will have " + str(guesses) + " guesses per blank word."
             print
             return guesses
-        else:
-            print "Opps! Try again..."
-            guesses = 0.0
 
 
 # Prompts the User to provide the answer for the numbered blank word.
@@ -245,5 +259,5 @@ def play_game():
     # Do we have a winner or a loser?
     win_or_lose(guessesCount, guesses)
 
-
+# Play ball!
 play_game()
