@@ -108,7 +108,7 @@ def get_answer(blankNum):
 
     print # For readability
 
-    answer = raw_input("Please enter your answer for ___" + str(blankNum) + "___? ")
+    answer = raw_input("Please enter your answer for __" + str(blankNum) + "__? ")
     answer = answer.replace(" ", "") # Remove any whitespace
 
     return answer
@@ -147,53 +147,45 @@ def check_answer(answer, answers, answerCount):
         return False
 
 
-def replace_blanks(answerCount, answer, guessesCount, content):
+# Checks if a word in paragraph is a substring of the numberStr passed in.
+def number_in_para(numberStr, paragraph):
     """
-    Replaces the numbered blanks in the quiz paragraph with the correct
-    answer given by the User.
-    Inputs: answerCount (int) - the answer number we are currently working on.
-    answer (string) -  The Users correct answer. guessesCount (int) - The
-    number of guesses made by the User. content (string) - The quiz paragraph.
-    Outputs: The modified answerCount, guessesCount and the content.
-    """
-    print "Whoop! Correct!\n"
-
-    # Replace the blank(s) with the correct answer
-    numberBlank = "___" + str(answerCount + 1) + "___"
-    content = content.replace(numberBlank, answer)
-
-    # Clean up our variables
-    answerCount += 1
-    guessesCount = 0
-
-    return answerCount, guessesCount, content
-
-
-def wrong_answer(guessesCount, guesses):
-    """
-    Notifies the User of a wrong guess and increments the guessesCount.
-    Inputs: guessesCount (int) - the current number of guessess. guessess
-    (int) - the max allowed guesses as configured by the User during game
-    setup.
-    Outputs: guessesCount (int)
+    Returns a 'paragraph blank with number' if a given 'numberStr' is a
+    substring of paragraph. Otherwise, return 'None'.
     """
 
-    print "\nYikes! That answer is incorrect!"
+    numberStr = str(numberStr)
 
-    guessesCount += 1
+    for word in paragraph:
+        if numberStr in word:
+            return word
+    return None
 
-    print "You have " + str(guesses - guessesCount) + " left! Try again...\n"
 
-    return guessesCount
+def replace_blanks(answerCount, answer, string_of_words):
+    """
+    Replaces the current numbered blank(s) with the given correct
+    answer
+    """
+
+    replaced_string = []
+
+    for word in string_of_words:
+        result = number_in_para(answerCount + 1, string_of_words)
+
+        if result != None:
+            word = word.replace(result, answer) # This will keep punctuation
+            replaced_string.append(word)
+        else:
+            replaced_string.append(word)
+
+    return replaced_string
 
 
 def win_or_lose(guessesCount, guesses):
     """
     Prints either a winning or losing message based on the inputs of
-    guessesCount and guesses.
-    Inputs: guessesCount (int) - the current number of guesses the User is on.
-    guesses (int) - the max number of guesses configured during game setup.
-    Outputs: none.
+    guessesCount and guesses
     """
 
     if guessesCount < guesses:
@@ -212,7 +204,7 @@ def play_game():
     does not return a value.
     """
 
-    answerCount, guessesCount = 0, 0
+    answerCount, guessesCount, guessesLeft = 0, 0, 0
 
     # Get the desired difficulty level from the User
     difficulty = get_difficulty()
@@ -222,6 +214,9 @@ def play_game():
 
     # Set the content based on the User's selected difficulty
     content, answers = set_content(difficulty)
+
+    # Split content into list of words
+    string_of_words = content.split()
 
     # While we haven't run out of guesses or answers
     while (guessesCount < guesses) and (answerCount < len(answers)):
@@ -235,14 +230,25 @@ def play_game():
         isCorrect = check_answer(answer, answers, answerCount)
 
         if isCorrect == True:
+            print "Whoop! Correct!\n"
 
-            # Replace the numbered blank with the correct answer
-            answerCount, guessesCount, content = replace_blanks(answerCount, answer, guessesCount, content)
+            # Replace the blank(s) with the correct answer
+            replaced_string = replace_blanks(answerCount, answer, string_of_words)
+
+            # Join the list of words back to a string
+            content = " ".join(replaced_string)
+            # Split the content back into a list for the next answer
+            string_of_words = content.split()
+            # Clean up our variables
+            answerCount += 1
+            guessesCount = 0
+            replaced_string = [] # Reset so we don't keep adding to the string
 
         else:
-
-            # Increment the guessesCount and notify the User of a wrong guess
-            guessesCount = wrong_answer(guessesCount, guesses)
+            print "\nYikes! That answer is incorrect!"
+            guessesCount += 1
+            guessesLeft = guesses - guessesCount
+            print "You have " + str(guessesLeft) + " left! Try again...\n"
 
     # Print the final content
     print content
