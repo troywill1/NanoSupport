@@ -554,3 +554,7 @@ days = 0
   * Simple and correct
 * Making progress is good!
   * Write small bits of code, test them, know what they do
+
+# Stage 3: Create a Movie Website
+
+## 
