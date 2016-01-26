@@ -54,6 +54,8 @@ def get_difficulty():
     """
     Returns the difficulty level chosen by the User. The returned value
     will be 'easy', 'medium' or 'hard'
+    Inputs: none.
+    Outputs: level (string) - the difficulty level chosen by the User.
     """
 
     level = "None"
@@ -76,6 +78,8 @@ def get_guesses():
     """
     Return the number of guesses, as a positive integer, that the User
     has selected.
+    Inputs: none.
+    Outputs: guesses (int) - number of guesses chosen by the User.
     """
 
     guesses = ""
@@ -102,13 +106,13 @@ def get_answer(blankNum):
     """
     Return a word that represents the User's guess at the numbered
     blank word.
+    Inputs: blankNum (int) - index relating to current answer in question.
+    Outputs: answer (string) - The User's current guess.
     """
 
     blankNum += 1 # Otherwise we start at zero instead of 1
 
-    print # For readability
-
-    answer = raw_input("Please enter your answer for ___" + str(blankNum) + "___? ")
+    answer = raw_input("\nPlease enter your answer for ___" + str(blankNum) + "___? ")
     answer = answer.replace(" ", "") # Remove any whitespace
 
     return answer
@@ -119,6 +123,11 @@ def set_content(difficulty):
     """
     Returns correct quiz content and answers based on the User's prior
     input of difficulty level.
+    Inputs: difficulty (string) - one of three difficulty levels selected by
+    the User.
+    Outputs: content (string) - paragraph with fill-in-the-blank answers
+    based on the difficulty level. answers (list, string) - the correct
+    answers to the content string.
     """
 
     if difficulty == "easy":
@@ -139,6 +148,10 @@ def check_answer(answer, answers, answerCount):
     """
     Returns True if the User's answer matches the correct answer.
     Otherwise, it returns False
+    Inputs: answer (string) - the User's current guess.
+    answers (list, strings) - list of correct answers. answerCount (int) -
+    index of the current correct answer.
+    Outputs: True or False
     """
 
     if answer == answers[answerCount]:
