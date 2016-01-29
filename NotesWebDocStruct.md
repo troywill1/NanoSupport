@@ -557,4 +557,7 @@ days = 0
 
 # Stage 3: Create a Movie Website
 
-## 
+## Abstraction
+
+* In computer science, abstraction tries to factor out the details from a common problem so that programmers can work close to the level of human thought, leaving out the details which matter in practice, but are exigent to the problem being solved.
+* In functions, we don't need to know the details of how the function works, just what inputs the function requires, and the desired outputs.
