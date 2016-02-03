@@ -18,8 +18,8 @@ import time, webbrowser
 totalBreaks = 3
 counter = 0
 
-print "Take a Break program started at: " + time.ctime()
+print "Take a Break program started at: " + time.ctime() # current time
 while counter < totalBreaks:
-    time.sleep(30)
+    time.sleep(30) # time in seconds
     webbrowser.open("http://www.youtube.com/watch?v=dQw4w9WgXcQ")
     counter += 1
