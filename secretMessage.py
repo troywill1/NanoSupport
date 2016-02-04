@@ -16,12 +16,19 @@
 import os
 
 def rename_files():
-    # Get filenames from a folder
-    file_list = os.listdir(r"C:\Users\troyw\Documents\testFiles") # create a list of dir items
-                                            # 'r' evaluates string as-is
+    # Get filenames from a folder, create a list of dir items
+    # 'r' evaluates string as-is
+    # Windows example
+    # file_list = os.listdir(r"C:\Users\troyw\Documents\testFiles")
+
+    # Mac example
+    file_list = os.listdir(r"/Users/troy/Downloads/prank")
+
     print file_list
     saved_path = os.getcwd() # get current working directory
     print "Current Working Directoy is " + saved_path
+    os.chdir(r"/Users/troy/Downloads/prank") # change path
+    print "Changed to new directory: " + os.getcwd()
 
     # For each filename, rename filename
     for file_name in file_list:
@@ -29,6 +36,7 @@ def rename_files():
         print "Old Name - " + file_name
         print "New Name - " + file_name.translate(None, "0123456789")
         os.rename(file_name, file_name.translate(None, "0123456789"))
-        os.chdir(saved_path)
+
+    os.chdir(saved_path)
 
 rename_files()
