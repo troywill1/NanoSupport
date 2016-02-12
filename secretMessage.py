@@ -16,6 +16,13 @@
 import os
 
 def rename_files():
+    """
+    This function takes a list of directory items and strips any numeric
+    characters from the filename and renames the file.
+
+    Input: None
+    Output: None
+    """
     # Get filenames from a folder, create a list of dir items
     # 'r' evaluates string as-is
     # Windows example
