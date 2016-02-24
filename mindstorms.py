@@ -9,30 +9,51 @@
 import turtle
 
 # Your code here.
-def draw_square():
+def draw_square(some_turtle):
     """
     docstring here
     """
 
-    # Create a screen and set its background color
-    window = turtle.Screen()
-    window.bgcolor("red")
+    for i in range(0,4):
+        some_turtle.forward(100)
+        some_turtle.right(90)
 
-    troy = turtle.Turtle()
-    troy.shape("circle")
-    troy.color("green", "blue")
-    troy.speed(2)
+def draw_circle():
 
-    troy.forward(100)
-    troy.right(90)
-    troy.forward(100)
-    troy.right(90)
-    troy.forward(100)
-    troy.right(90)
-    troy.forward(100)
-    troy.right(90)
+    # Draw a circle
+    angie = turtle.Turtle()
+    angie.shape("circle")
+    angie.color("blue")
+    angie.circle(100)
 
-    # Ability to exit the window by clicking
-    window.exitonclick()
+def draw_triangle():
 
-draw_square()
+    # Draw a triangle
+    bart = turtle.Turtle()
+    bart.shape("triangle")
+    bart.color("red")
+
+    for i in range(0,3):
+        bart.forward(200)
+        bart.left(120)
+
+# Create a screen and set its background color
+window = turtle.Screen()
+window.bgcolor("white")
+
+# Create a turtle to draw a square
+troy = turtle.Turtle()
+troy.shape("square")
+troy.color("green", "blue")
+troy.speed(2)
+
+# Draw a circle out of squares
+for i in range(0,36):
+    draw_square(troy)
+    troy.right(10)
+
+# draw_circle()
+# draw_triangle()
+
+# Ability to exit the window by clicking
+window.exitonclick()
