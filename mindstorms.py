@@ -43,8 +43,8 @@ window.bgcolor("white")
 
 # Create a turtle to draw a square
 troy = turtle.Turtle()
-troy.shape("square")
-troy.color("green", "blue")
+troy.shape("arrow")
+troy.color("black", "blue")
 troy.speed(2)
 
 # Draw a circle out of squares
