@@ -18,10 +18,23 @@ def read_text():
     # Your code here
     quotes = open("/Users/troy/Dropbox/MOOC/ProgNano/Python/movie_quotes.txt")
     contents_of_file = quotes.read()
-    print contents_of_file
+    # print contents_of_file
     quotes.close()
 
-# def check_profanity(text):
+    check_profanity(contents_of_file)
+
+def check_profanity(text):
     # Your code here
+    connection = urllib.urlopen("http://www.purgomalum.com/service/containsprofanity?text=" + text)
+    output = connection.read()
+    print output
+    connection.close()
+
+    if "true" in output:
+        print "Profanity Alert!!"
+    elif "false" in output:
+        print "This document has no profanity."
+    else:
+        print "Could not scan the document properly."
 
 read_text()
