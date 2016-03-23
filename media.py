@@ -17,7 +17,13 @@ import webbrowser
 # however, that is not a requirement. It would all still work in a single file.
 
 class Movie():
-    # This class provides a way to store movie related information
+    """
+    This class provides a way to store movie related information
+    """
+
+    # Class variable. Available to all instances of this class.
+    # Google Style Guide suggests constant variables by UPPERCASE.
+    VALID_RATINGS = ['G', 'PG', 'PG-13', 'R']
 
     # 'self' is a convention used by most python programmers
     def __init__(self, movie_title, movie_storyline, poster_image,

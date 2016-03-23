@@ -54,4 +54,8 @@ petes_dragon = media.Movie("Pete's Dragon",
 
 movies = [toy_story, avatar, star_wars, batman_superman, finding_dory,
           petes_dragon]
-fresh_tomatoes.open_movies_page(movies)
+# fresh_tomatoes.open_movies_page(movies)
+print media.Movie.VALID_RATINGS # Class variable. See 'media.py'.
+print media.Movie.__doc__ # Python includes some pre-defined Class variables
+print media.Movie.__name__ # The name of the Class
+print media.Movie.__module__ # Name of module in which the Class was defined
